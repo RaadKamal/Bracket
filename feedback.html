@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<title>Tournament Bracket Manager</title>
+	<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+	<style>
+
+		/* The Modal (background) */
+		.modal {
+		  display: none; /* Hidden by default */
+		  position: fixed; /* Stay in place */
+		  z-index: 1; /* Sit on top */
+		  padding-top: 100px; /* Location of the box */
+		  left: 0;
+		  top: 0;
+		  width: 100%; /* Full width */
+		  height: 100%; /* Full height */
+		  overflow: auto; /* Enable scroll if needed */
+		  background-color: rgb(0,0,0); /* Fallback color */
+		  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
+
+		/* Modal Content */
+		.modal-content {
+		  background-color: #fefefe;
+		  margin: auto;
+		  padding: 20px;
+		  border: 1px solid #888;
+		  width: 80%;
+		}
+
+		/* The Close Button */
+		.close {
+		  color: #aaaaaa;
+		  float: right;
+		  font-size: 28px;
+		  font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+		  color: #000;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+		.w3-allerta {
+	  		font-family: "Allerta Stencil", Sans-serif;
+	  	}
+
+	  	.button {
+          background-color: orange; /* Green */
+          border: 2px solid black;
+          color: black;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 50px;
+          cursor: pointer;
+          box-shadow: 5px 10px #2E2E2E;
+          margin: 4px 5px;
+          margin-top: 100px;
+		}
+        .button:hover {
+            background-color: #cc5200;
+            box-shadow: none;
+        }
+
+
+
+
+		.nav{
+		    border:2px solid black;
+		    list-style:none;
+		    margin:0;
+		    padding:20;
+		    text-align:center;
+		    background-color:#cc5200;
+		}
+		.nav li{
+		    display:inline;
+		}
+		.nav a{
+		    display:inline-block;
+		    padding:20px;
+		  color: #f2f2f2;
+		  text-align: center;
+		  text-decoration: none;
+		  font-size: 17px;
+		}
+		.nav a:hover {
+		  background-color: orange;
+		  color: black;
+		}
+
+		.nav a.active {
+		  background-color: white;
+		  color: white;
+		}
+
+
+		input[type=text], select, textarea {
+		  width: 100%;
+		  padding: 12px;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  box-sizing: border-box;
+		  margin-top: 6px;
+		  margin-bottom: 16px;
+		  resize: vertical;
+		}
+
+		input[type=submit] {
+		  background-color: orange;
+		  color: white;
+		  padding: 12px 20px;
+		  border: none;
+		  border-radius: 4px;
+		  cursor: pointer;
+		}
+
+		input[type=submit]:hover {
+		  background-color: #cc5200;
+		}
+
+		.container {
+		  border-radius: 5px;
+		  background-color: #f2f2f2;
+		  padding: 20px;
+		}
+	</style>
+
+	<body style="background-color:#708090">
+		<center>
+			<div class="w3-container w3-black w3-center w3-allerta">
+				<p class=w3-xxxlarge><font color="orange">Tournament Bracket Manager</font></p>
+			</div>
+
+
+		<ul class="nav">
+		  <li><a href="index.html">Home</a></li>
+		  <li><a href="addteam.html">Add a Team (SAMPLE)</a></li>
+		  <li><a href="prototype.html">Bracket</a></li>
+		  <li><a href="odds.html">Prediction</a></li>		  
+		  <li><a href="feedback.html">Feedback</a></li>
+		  <li><a href="settings.html">Setting</a></li>
+		</ul>
+
+		<h3>Contact Form</h3>
+
+		<div class="container">
+		  <form action="/action_page.php">
+		    <label for="fname">Name</label>
+		    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+		    <label for="lname">Email</label>
+		    <input type="text" id="lname" name="lastname" placeholder="Your email address..">
+
+
+		    <label for="subject">Feedback</label>
+		    <textarea id="subject" name="subject" placeholder="Write your advice.." style="height:200px"></textarea>
+		  </form>
+		  <button type="submit" id="submit">Submit</button>
+		</div>
+
+				<!-- The Modal -->
+		<div id="myModal" class="modal">
+		  <!-- Modal content -->
+		  <div class="modal-content">
+		    <span class="close">&times;</span>
+		    <p>Thank You For Your Feeback :)</p>
+		  </div>
+
+		</div>
+		</center>
+	</body>
+		<script>
+		// Get the modal
+		var modal = document.getElementById("myModal");
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("submit");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal 
+		btn.onclick = function() {
+		  modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		  modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+		    modal.style.display = "none";
+		  }
+		}
+	</script>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Tournament Bracket Generator</title>
+            <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="jquery.bracket.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="jquery.bracket.min.css" />
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+
+        <script type="text/javascript">
+            $(function () {
+                var demos = ['save', 'save1', 'final']
+                $.each(demos, function (i, d) {
+                    var demo = $('div#' + d)
+                    $('<div class="demo"></div>').appendTo(demo)
+                })
+            })
+        </script>
+
+        <style>
+
+        .w3-allerta {
+        font-family: "Allerta Stencil", Sans-serif;
+        }
+
+        .nav{
+        border:2px solid black;
+        list-style:none;
+        margin:0;
+        padding:20;
+        text-align:center;
+        background-color:#cc5200;
+        }
+        .nav li{
+            display:inline;
+        }
+        .nav a{
+            display:inline-block;
+            padding:20px;
+          color: #f2f2f2;
+          text-align: center;
+          text-decoration: none;
+          font-size: 17px;
+          transition: 0.2s;
+        }
+        .nav a:hover {
+          background-color: orange;
+          color: black;
+        }
+
+        .nav a.active {
+          background-color: white;
+          color: white;
+        }
+
+
+
+
+        #end{
+          display: none;
+        }
+        .btn-group .button {
+          background-color: orange; /* Green */
+          border: 2px solid black;
+          color: black;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          cursor: pointer;
+          float: center;
+          box-shadow: 5px 10px #2E2E2E;
+          cursor: pointer;
+          margin: 4px 5px;
+          transition: 0.2s;
+        }
+
+        .btn-group .button:hover {
+            background-color: #cc5200;
+            box-shadow: none;
+            transition: 0.2s;
+        }
+        </style>
+
+
+    </head>
+    <body style="background-color:#708090">
+
+
+      <center>
+      <div class="w3-container w3-black w3-center w3-allerta">
+        <p class=w3-xxxlarge><font color="orange">Tournament Bracket Manager</font></p>
+      </div>
+
+
+    <ul class="nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="addteam.html">Add a Team (SAMPLE)</a></li>
+      <li><a href="prototype.html">Bracket</a></li>
+      <li><a href="odds.html">Prediction</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="settings.html">Setting</a></li>
+    </ul>
+
+        <body style="background-color:#708090;text-align:center;">
+        <h1 style="font-size:300%;background-color:#525d69;color: orange;text-align:center;"
+        contenteditable="true" id="title">Enter Tournament Name...</h1>
+
+
+
+
+
+        <div id="main">
+            <div id="save" style="display: inline-block;color: blue;">
+
+            </div>
+            <div id="final" style="display: inline-block;">
+
+            </div>
+            <div id="save1" style="display: inline-block;float: right">
+
+            </div>
+
+        </div>
+
+        <script type="text/javascript">
+           
+        var saveData = {
+            teams: [
+            ["Team 1", "Team 2"],
+            ["Team 3", "Team 4"],
+            ["Team 5", "Team 6"],
+            ["Team 7", "Team 8"]
+            ],
+        results: [
+            [
+            [[null, null], [null, null], [null, null], [null, null]],
+            [[null, null], [1, 4]],
+            [[null, null], [null, null]]
+            ]
+        ]
+        };
+ 
+        /* Called whenever bracket is modified
+         *
+         * data:     changed bracket object in format given to init
+         * userData: optional data given when bracket is created.
+         */
+        function saveFn(data, userData) {
+          var json = jQuery.toJSON(data)
+          $('#saveOutput').text('POST '+userData+' '+json)
+          /* You probably want to do something like this
+          jQuery.ajax("rest/"+userData, {contentType: 'application/json',
+                                        dataType: 'json',
+                                        type: 'post',
+                                        data: json})
+          */
+        }
+ 
+        $(function() {
+            var container = $('div#save .demo')
+            container.bracket({
+            	 teamWidth: 200,
+                            scoreWidth: 50,
+                            matchMargin: 100,
+                            roundMargin: 100,
+                            centerConnectors: true,
+              init: saveData,
+              save: saveFn,
+              userData: "http://myapi"})
+            
+            /* You can also inquiry the current data */
+            var data = container.bracket('data')
+            $('#dataOutput').text(jQuery.toJSON(data))
+          })
+
+
+
+
+            $(function () {
+                $('div#save .demo').bracket({
+                    teamWidth: 200,
+                    scoreWidth: 50,
+                    matchMargin: 100,
+                    roundMargin: 100,
+                    centerConnectors: true,
+                    init: saveData,
+                    save: function () {}, /* without save() labels are disabled */
+                    decorator: {edit: edit_fn,
+                        render: render_fn}})
+            })
+            
+
+
+        </script>
+
+        <div class="btn-group">
+          <button id="outcome" class="button" onclick="myFunction()">Predict Outcomes!</button>
+
+        </div>
+        <script>
+            function myFunction() {
+              window.open("odds.html");
+            }
+
+            function startClick(){
+              document.getElementById("outcome").style.display = "none";
+              document.getElementById("start").style.display = "none";
+              document.getElementById("end").style.display = "inline-block";
+              document.getElementById("title").style.contenteditable = "false";
+            }
+
+            function endClick(){
+              
+            }
+        </script>
+
+
+    </body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<title>Tournament Bracket Manager</title>
+	<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+	<style>
+		.w3-allerta {
+	  		font-family: "Allerta Stencil", Sans-serif;
+	  	}
+
+	  	.button {
+          background-color: orange; /* Green */
+          border: 2px solid black;
+          color: black;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 50px;
+          cursor: pointer;
+          box-shadow: 5px 10px #2E2E2E;
+          margin: 4px 5px;
+          margin-top: 100px;
+          transition: 0.2s;
+		}
+        .button:hover {
+            background-color: #cc5200;
+            box-shadow: none;
+            transition: 0.2s;
+        }
+
+
+
+
+		.nav{
+		    border:2px solid black;
+		    list-style:none;
+		    margin:0;
+		    padding:20;
+		    text-align:center;
+		    background-color:#cc5200;
+		}
+		.nav li{
+		    display:inline;
+		}
+		.nav a{
+		    display:inline-block;
+		    padding:20px;
+		  color: #f2f2f2;
+		  text-align: center;
+		  text-decoration: none;
+		  font-size: 17px;
+		  transition: 0.2s;
+		}
+		.nav a:hover {
+		  background-color: orange;
+		  color: black;
+		}
+
+		.nav a.active {
+		  background-color: white;
+		  color: white;
+		}
+
+		.container {
+		  position: relative;
+		  text-align: center;
+		  color: black;
+		}
+
+		.bottom-left {
+		  position: absolute;
+		  bottom: 8px;
+		  left: 16px;
+		}
+
+		.top-left {
+		  position: absolute;
+		  top: 8px;
+		  left: 16px;
+		}
+
+		.top-right {
+		  position: absolute;
+		  top: 8px;
+		  right: 16px;
+		}
+
+		.bottom-right {
+		  position: absolute;
+		  bottom: 8px;
+		  right: 16px;
+		}
+
+		.centered {
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  font-size: 50px;
+		  transform: translate(-50%, -50%);
+		}
+
+		.radio-inline {
+			font-size: 15px;
+		}
+
+
+
+
+	</style>
+	<script>
+		function createClick(){
+			window.location.href = "prototype.html";
+		}
+	</script>
+	<body style="background-color:#708090">
+		<center>
+			<div class="w3-container w3-black w3-center w3-allerta">
+				<p class=w3-xxxlarge><font color="orange">Tournament Bracket Manager</font></p>
+			</div>
+
+
+		<ul class="nav">
+		  <li><a href="index.html">Home</a></li>
+		  <li><a href="addteam.html">Add a Team (SAMPLE)</a></li>
+		  <li><a href="prototype.html">Bracket</a></li>
+		  <li><a href="odds.html">Prediction</a></li>		  
+		  <li><a href="feedback.html">Feedback</a></li>
+		  <li><a href="settings.html">Settings</a></li>
+		</ul>
+
+
+		<div class="container">
+		  <h2>Page Settings</h2>
+		  <h3>Font Size:</h3>
+		  <form>
+		    <label class="radio-inline">
+		      <input type="radio" name="optradio" checked>Small
+		    </label>
+		    <label class="radio-inline">
+		      <input type="radio" name="optradio">Medium 
+		    </label>
+		    <label class="radio-inline">
+		      <input type="radio" name="optradio">Large
+		    </label>
+		  </form>
+		  <h3>Theme:</h3>
+		  <form>
+		  	<label class="radio-inline">
+		  		<input type="radio" name="optradio" checked>Dark
+		  	</label>
+		  	<label class="radio-inline">
+		  		<input type="radio" name="optradio" checked>Light
+		  	</label>
+		  </form>
+		  <h3>Voice Over:</h3>
+		  <form>
+		  	<label class="radio-inline">
+		  		<input type="radio" name="optradio" checked>Off
+		  	</label>
+		  	<label class="radio-inline">
+		  		<input type="radio" name="optradio" checked>Male
+		  	</label>
+		  	<label class="radio-inline">
+		  		<input type="radio" name="optradio" checked>Female
+		  	</label>
+		  </form>
+		</div>
+		
+		</center>
+	</body>
+</html>

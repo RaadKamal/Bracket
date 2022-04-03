@@ -1,0 +1,158 @@
+  <!doctype html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tournament Bracket</title>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+
+    <style>
+
+      .w3-allerta {
+        font-family: "Allerta Stencil", Sans-serif;
+      }
+
+    /* Style the input */
+    input {
+      margin: 0 auto;
+      margin-bottom: 5px;
+      border: none;
+      border-radius: 0;
+      width: 50%;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .nav{
+        border:2px solid black;
+        list-style:none;
+        margin:0;
+        padding:20;
+        text-align:center;
+        background-color:#cc5200;
+    }
+    .nav li{
+        display:inline;
+    }
+    .nav a{
+        display:inline-block;
+        padding:20px;
+      color: #f2f2f2;
+      text-align: center;
+      text-decoration: none;
+      font-size: 17px;
+      transition: 0.2s;
+    }
+    .nav a:hover {
+      background-color: orange;
+      color: black;
+    }
+
+    .nav a.active {
+      background-color: white;
+      color: white;
+    }
+
+
+      li:hover{
+        background-color: #cc5200;
+        box-shadow: none;
+      }
+
+      .button{
+          position: relative;
+          background-color: orange;
+          border: 2px solid black;
+          color: black;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 30px;
+          margin: 4px 2px;
+          cursor: pointer;
+          box-shadow: 5px 10px #2E2E2E;
+          top: 25px;
+          transition: 0.3s;
+      }
+
+      .button:hover{
+        background-color: #cc5200;
+        box-shadow: none;
+      }
+
+      h1{
+        color: solid black;
+      }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      
+
+      $( function() {
+        $( "#sortable" ).sortable({
+          revert: true
+        });
+
+        $( "#draggable" ).draggable({
+          connectToSortable: "#sortable",
+          helper: "clone",
+          revert: "invalid"
+        });
+        $( "ul, li" ).disableSelection();
+      } );
+    </script>
+    <script >
+      function closeWindow(){
+        window.close("odds.html")
+      }
+
+    </script>
+  </head>
+
+  <body style="background-color:#708090;"> 
+  <center> 
+
+      <div class="w3-container w3-black w3-center w3-allerta">
+        <p class=w3-xxxlarge><font color="orange">Tournament Bracket Manager</font></p>
+      </div>
+
+
+    <ul class="nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="addteam.html">Add a Team (SAMPLE)</a></li>
+      <li><a href="prototype.html">Bracket</a></li>
+      <li><a href="odds.html">Prediction</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="settings.html">Setting</a></li>
+    </ul>
+
+
+   <h1 size = "8" >Create a Team!</h1>
+
+   <div id="ttitle" class="cheader">
+      <h2 style=:margin: 5px">Team Name</h2>
+      <input type = "text"
+      id = "myText"
+      placeholder = "Team Name..." />
+   </div>
+
+  <div id="myDIV" class="header">
+    <h2 style="margin:5px">Add Players</h2>
+    <input type="text" id="myInput" placeholder="Player Name...">
+    <input type="text" id="myInput" placeholder="Player Name...">
+    <input type="text" id="myInput" placeholder="Player Name...">
+    <input type="text" id="myInput" placeholder="Player Name...">
+    <input type="text" id="myInput" placeholder="Player Name...">
+    <input type="text" id="myInput" placeholder="Player Name...">
+  </div>
+
+   <a href="prototype.html" class="button"; onclick="closeWindow()">Confirm</a>
+  </center>
+  </body>
+  </html>
